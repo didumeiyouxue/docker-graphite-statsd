@@ -21,7 +21,15 @@ RUN apt-get -y update \
   pkg-config \
   nodejs \
   npm \
+  wget \
   && rm -rf /var/lib/apt/lists/*
+
+# instal zabbix sender
+RUN wget http://repo.zabbix.com/zabbix/2.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_2.2-1+trusty_all.deb
+RUN dpkg -i zabbix-release_2.2-1+trusty_all.deb
+RUN apt-get -y update
+RUN apt-get -y install zabbix-sender
+
 
 # fix python dependencies (LTS Django and newer memcached/txAMQP)
 RUN pip install django==1.8.18 \
