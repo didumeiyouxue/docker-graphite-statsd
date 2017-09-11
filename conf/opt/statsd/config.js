@@ -3,4 +3,8 @@
   "graphitePort": 2003,
   "port": 8125,
   "flushInterval": 10000
+  backends: [ "./backends/graphite", "statsd-zabbix-backend" ],
+  zabbixPort: 10051,
+  zabbixHost: "localhost",
+  zabbixSender: "/usr/bin/zabbix_sender"
 }

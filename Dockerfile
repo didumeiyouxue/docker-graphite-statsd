@@ -20,6 +20,7 @@ RUN apt-get -y update \
   python-rrdtool \
   pkg-config \
   nodejs \
+  npm \
   && rm -rf /var/lib/apt/lists/*
 
 # fix python dependencies (LTS Django and newer memcached/txAMQP)
@@ -54,6 +55,9 @@ RUN mkdir -p /var/log/graphite/ \
 # install statsd
 RUN git clone -b v0.7.2 https://github.com/etsy/statsd.git /opt/statsd
 ADD conf/opt/statsd/config.js /opt/statsd/config.js
+
+# install statsd-zabbix-backend
+RUN npm install statsd-zabbix-backend
 
 # config nginx
 RUN rm /etc/nginx/sites-enabled/default
