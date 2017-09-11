@@ -56,9 +56,6 @@ RUN mkdir -p /var/log/graphite/ \
 RUN git clone -b v0.7.2 https://github.com/etsy/statsd.git /opt/statsd
 ADD conf/opt/statsd/config.js /opt/statsd/config.js
 
-# install statsd-zabbix-backend
-RUN npm install statsd-zabbix-backend
-
 # config nginx
 RUN rm /etc/nginx/sites-enabled/default
 ADD conf/etc/nginx/nginx.conf /etc/nginx/nginx.conf
@@ -84,6 +81,9 @@ ADD conf/etc/service/nginx/run /etc/service/nginx/run
 # default conf setup
 ADD conf /etc/graphite-statsd/conf
 ADD conf/etc/my_init.d/01_conf_init.sh /etc/my_init.d/01_conf_init.sh
+
+# install statsd-zabbix-backend
+RUN npm install statsd-zabbix-backend
 
 # cleanup
 RUN apt-get clean\
