@@ -91,6 +91,7 @@ ADD conf /etc/graphite-statsd/conf
 ADD conf/etc/my_init.d/01_conf_init.sh /etc/my_init.d/01_conf_init.sh
 
 # install statsd-zabbix-backend
+WORKDIR /opt/statsd/backends
 RUN npm install statsd-zabbix-backend
 
 # cleanup

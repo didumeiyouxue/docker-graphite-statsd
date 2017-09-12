@@ -5,7 +5,7 @@
   "flushInterval": 10000,
   "debug": true,
   "percentThreshold": [95, 99],
-  "backends": ["statsd-zabbix-backend"],
+  "backends": ["./backends/graphite", "./node_modules/statsd-zabbix-backend"],
   "zabbixPort": 10051,
   "zabbixHost": "localhost",
   "zabbixSender": "/usr/bin/zabbix_sender"
